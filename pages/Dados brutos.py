@@ -73,25 +73,27 @@ aba1, aba2, aba3 = st.tabs(['Receita', 'Quantidade de vendas', 'Vendedores'])
 with aba1:
     coluna1, coluna2 = st.columns(2)
     with coluna1:
-    st.metric('Receita', formata_numero(dados['Preço'].sum(), 'R$'))
-    st.plotly_chart(fig_mapa_receita, use_container_width = True)
-    st.plotly_chart(fig_receita_estados, use_container_width = True)
+        st.metric('Receita', formata_numero(dados['Preço'].sum(), 'R$'))
+        st.plotly_chart(fig_mapa_receita, use_container_width = True)
+        st.plotly_chart(fig_receita_estados, use_container_width = True)
 
     with coluna2:
-    st.metric('Quantidade de vendas', formata_numero(dados.shape[0]))
-    st.plotly_chart(fig_receita_mensal, use_container_width = True)
+        st.metric('Quantidade de vendas', formata_numero(dados.shape[0]))
+        st.plotly_chart(fig_receita_mensal, use_container_width = True)
         st.plotly_chart(fig_receita_categorias, use_container_width = True)
-  with aba2:
+
+with aba2: # <-- Corrigido aqui também, estava com menos indentação que 'with aba1'
     coluna1, coluna2 = st.columns(2)
     with coluna1:
-    st.metric('Receita', formata_numero(dados['Preço'].sum(), 'R$'))
+        st.metric('Receita', formata_numero(dados['Preço'].sum(), 'R$'))
 
     with coluna2:
-    st.metric('Quantidade de vendas', formata_numero(dados.shape[0]))
- with aba3:
+        st.metric('Quantidade de vendas', formata_numero(dados.shape[0]))
+
+with aba3: # <-- Corrigido aqui também
     coluna1, coluna2 = st.columns(2)
     with coluna1:
-    st.metric('Receita', formata_numero(dados['Preço'].sum(), 'R$'))
+        st.metric('Receita', formata_numero(dados['Preço'].sum(), 'R$'))
 
     with coluna2:
-    st.metric('Quantidade de vendas', formata_numero(dados.shape[0]))
+        st.metric('Quantidade de vendas', formata_numero(dados.shape[0]))
